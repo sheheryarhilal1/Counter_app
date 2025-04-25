@@ -9,26 +9,32 @@ class CounterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Counter App (MVC + GetX)")),
+      appBar: AppBar(title: Text("Counter App")),
       body: Center(
-        child: Obx(() => Text(
-          'Counter: ${controller.counter.value.value}',
-          style: TextStyle(fontSize: 30),
-        )),
-      ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          FloatingActionButton(
-            onPressed: controller.increment,
-            child: Icon(Icons.add),
-          ),
-          SizedBox(width: 10),
-          FloatingActionButton(
-            onPressed: controller.decrement,
-            child: Icon(Icons.remove),
-          ),
-        ],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Obx(() => Text(
+                  'Counter: ${controller.counter.value.value}',
+                  style: TextStyle(fontSize: 30),
+                )),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FloatingActionButton(
+                  onPressed: controller.increment,
+                  child: Icon(Icons.add),
+                ),
+                SizedBox(width: 20),
+                FloatingActionButton(
+                  onPressed: controller.decrement,
+                  child: Icon(Icons.remove),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
